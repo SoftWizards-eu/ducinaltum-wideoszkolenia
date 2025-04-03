@@ -1,0 +1,68 @@
+{% if module.vars.type in ['news', 'blog', 'press', 'gallery'] %}
+<section class="text text-content">
+<div class="news-list">
+{% set news = load_nodes(module.vars.type, {
+    orderBy : {publishDate:'desc'},
+    max: 6,
+    pagging: true,
+    where : {
+        public : true
+    }, 
+    page : app.request.query.get('page', 1)
+}) %}
+<div class="list">
+    {% for item in news.list  %}
+    <div class="news-item" data-aos="fade-right" data-aos-duration="1000"  data-aos-delay="{{ (loop.index0 % 3)*300 }}">
+                <span class="photo" style="background-image: url('{{ (item.vars.photo ? item.vars.photo.path : cycle(['images/nophoto.jpg', 'images/nophoto2.jpg'], loop.index))|imagine_filter('blog') }}')"></span>
+                <span class="nb"></span>
+                <span class="over">
+                    <span class="tit">{{ item.vars.title }}</span>
+                    <span class="lead">
+                        {{ item.vars.lead|nl2br }}
+                    </span>
+                    <a href="{{ item.url }}" class="more">
+                        więcej
+                    </a>
+                </span>
+                <span class="nb last"></span>
+            </div>
+              
+    {% endfor %}
+</div>
+{% include 'nodes/pagging.html.twig' with news %}
+</div>
+</section>
+{% elseif module.vars.type in ['reference'] %}
+<section class="text text-content">
+<div class="news-list">
+{% set news = load_nodes(module.vars.type, {
+    orderBy : {publishDate:'desc'},
+    max: 6,
+    pagging: true,
+    where : {
+        public : true
+    }, 
+    page : app.request.query.get('page', 1)
+}) %}
+ <div class="reference reference-simple">
+        {% for row in news.list|batch(3) %}
+        <div class="wrap">
+            <div class="list">
+            {% for item in row %}
+            <div class="item-wrap" >
+                <div class="item ">
+                    <h5>{{ item.vars.title }}</h5>
+                    <p>{{ item.vars.lead|nl2br }}</p>
+                    <a href="{{ item.url }}">więcej...</a>
+                </div>
+            </div>
+            
+            {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% include 'nodes/pagging.html.twig' with news %}
+</div>
+</section>
+{% endif %}
