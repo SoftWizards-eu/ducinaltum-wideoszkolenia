@@ -1,0 +1,43 @@
+{% extends 'account/base.html.twig' %}
+
+{% block account_content %}
+    <h2 class="da-account-title">Moje zamówienia</h2>
+    
+    <div class="da-table-responsive">
+        <table class="da-table">
+            <thead>
+                <tr>
+                    <th>Szkolenie</th>
+                    <th>Data zamówienia</th>
+                    <th>Nr zamówienia</th>
+                    <th>Cena</th>
+                    <th>FV</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in 1..6 %}
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div style="margin-right: 15px;">
+                                <img src="{{ asset('build/images/placeholder-video.jpg') }}" alt="Szkolenie" width="80" style="border-radius: 4px;">
+                            </div>
+                            <div>
+                                Nazwa szkolenia lorem ipsum dolor sit amet
+                            </div>
+                        </div>
+                    </td>
+                    <td>15.03.2018</td>
+                    <td>0000{{ 75842 + i }}</td>
+                    <td>680,00 zł</td>
+                    <td>
+                        <a href="#" style="color: #0077b6; font-size: 18px;">
+                            <i class="fa fa-file-pdf"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

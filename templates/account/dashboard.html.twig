@@ -1,0 +1,80 @@
+{% extends 'account/base.html.twig' %}
+
+{% block account_content %}
+    <h2 class="da-account-title">Dane konta</h2>
+    
+    <div class="da-flex-row">
+        <!-- Dane podstawowe -->
+        <div class="da-flex-col da-flex-col-50">
+            <div class="da-account-section">
+                <h3 class="da-section-title">Dane podstawowe</h3>
+                <div class="da-account-form">
+                    <div class="da-form-group">
+                        <label for="firstName" class="da-form-label">Imię</label>
+                        <input type="text" class="da-form-control" id="firstName" placeholder="Imię" value="Piotr">
+                    </div>
+                    
+                    <div class="da-form-group">
+                        <label for="lastName" class="da-form-label">Nazwisko</label>
+                        <input type="text" class="da-form-control" id="lastName" placeholder="Nazwisko" value="Czyż">
+                    </div>
+                    
+                    <div class="da-form-group">
+                        <label for="email" class="da-form-label">Email</label>
+                        <input type="email" class="da-form-control" id="email" placeholder="adresemail@example.com" value="adresemail@example.com">
+                    </div>
+                    
+                    <div class="da-form-group">
+                        <label for="password" class="da-form-label">Hasło</label>
+                        <div style="display: flex;">
+                            <input type="password" class="da-form-control" id="password" value="********" style="flex-grow: 1; margin-right: 10px;">
+                            <button type="button" class="da-btn da-btn-secondary" id="changePasswordBtn">zmień hasło</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dane do faktury -->
+        <div class="da-flex-col da-flex-col-50">
+            <div class="da-account-section">
+                <h3 class="da-section-title">Dane do faktury</h3>
+                <div class="da-account-form">
+                    <div class="da-form-group">
+                        <label for="companyName" class="da-form-label">Nazwa firmy</label>
+                        <input type="text" class="da-form-control" id="companyName" placeholder="Nazwa firmy">
+                    </div>
+                    
+                    <div class="da-form-group">
+                        <label for="nip" class="da-form-label">NIP</label>
+                        <input type="text" class="da-form-control" id="nip" placeholder="NIP">
+                    </div>
+                    
+                    <div class="da-form-group">
+                        <label for="address" class="da-form-label">Adres</label>
+                        <input type="text" class="da-form-control" id="address" placeholder="Adres">
+                    </div>
+                    
+                    <div class="da-flex-row">
+                        <div class="da-flex-col da-flex-col-50">
+                            <div class="da-form-group">
+                                <label for="zipCode" class="da-form-label">Kod pocztowy</label>
+                                <input type="text" class="da-form-control" id="zipCode" placeholder="Kod pocztowy">
+                            </div>
+                        </div>
+                        <div class="da-flex-col da-flex-col-50">
+                            <div class="da-form-group">
+                                <label for="city" class="da-form-label">Miasto</label>
+                                <input type="text" class="da-form-control" id="city" placeholder="Miasto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <button type="submit" class="da-btn">ZAPISZ ZMIANY</button>
+    </div>
+{% endblock %}

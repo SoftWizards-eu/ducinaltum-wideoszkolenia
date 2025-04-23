@@ -17,6 +17,7 @@
     mobile_second : slide.vars.mobile_second ? {path : asset(slide.vars.mobile_second.path), mime: slide.vars.mobile_second.mime} : null
 }]) %}
 {% endfor %}
+{#
 {% if slider|length > 0 %}
 {% set slide = slider[0] %}
 <slider class="slider" :cfg="{{ cfg|json_encode }}">
@@ -46,31 +47,41 @@
     </div>
 </slider>
 {% endif %}
+#}
 {% endblock %}
 {% block content %}
-    <div class="boxes-container">
-    <div class="boxes ">
-        {% for i in 1..4 %}
-        <a class="box animate-block" data-aos-delay="{{ (i-1)*300 }}" data-aos-duration="1000" data-aos="fade-down" href="{{ sett('box_url_'~i) }}" style="">
-            <span class="over"><span class="tit">{{ sett('box_title_'~i) }}</span>
-            <span class="cnt"><span>{{ sett('box_text_'~i) }}</span></span></span>
-        </a>
-        {% endfor %}
+<div id="content-start">
+    <div class="prezentacja-szkolenia">
+  <div class="zawartość-szkolenia">
+    <div class="tekst-szkolenia">
+      <h2>Tytuł przykładowego szkolenia</h2>
+      <p class="opis-szkolenia">Krótki opis szkolenia... qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+      <p class="prowadzący-szkolenia">Prowadzący: Siostra Władysława Krasiczynska, Janina Kowalska</p>
+      <button class="przycisk-obejrzyj">
+        OBEJRZYJ SZKOLENIE
+        <span class="ikona-przycisku"><i class="fa-solid fa-play arrow-watch"></i></span>
+      </button>
     </div>
+    <div class="wideo-szkolenia">
+      <div class="kontener-wideo">
+        <img src="{{ asset('build/images/placeholder-video.jpg') }}" alt="Szkolenie wideo" class="miniatura-wideo">
+        <div class="kontrolki-wideo">
+          <div class="przycisk-odtwarzania"><i class="fa-solid fa-play arrow-watch"></i></div>
+          <div class="pasek-postępu">
+            <div class="linia-czasu">
+              <div class="postęp-czasu"></div>
+            </div>
+            <div class="licznik-czasu">00:00 / 01:30</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+</div>
 <div id="content" style="background-color:rgba(255,255,255,0)">
 
-    <div class="about animate-block" >
-        <div class="wrap">
-            <div class="cnt text-content intro-content" >
-             
-            <div data-aos="fade-left" data-aos-duration="1000" >
-                {{ sett('intro_content')|auto_blank|raw }}
-                </div>
-            </div>
-            <div class="left"></div>
-        </div>
-    </div>
+    
     
     {% set news = load_node('page',{
             where: {
@@ -92,23 +103,61 @@
         rand: true
     }).list %}
     <div class="reference">
-        <h3 class="black-title"><a href="{{ newsUrl }}">Aktualności/Ogłoszenia</a></h3>
+        <h3 class="black-title"><a href="{{ newsUrl }}">Najnowsze szkolenia <img src="{{ asset('build/images/logo-ducinaltum-fundacjakopia.svg') }}" alt="Logo" class="circle"></a></h3>
         <div class="wrap">
             <div class="list">
             {% for item in items %}
             <div class="item-wrap" >
                 <div class="item  animate-block" data-aos-delay="{{ loop.index0*300 }}" data-aos-duration="1000"  data-aos="flip-left">
-                    <h6 class="publishdate">{{ item.vars.publishDate | date("Y-m-d")}}</h6>
-                    <h5>{{ item.vars.title }}</h5>
-                    <p>{{ item.vars.lead|nl2br }}</p>
-                    <a href="{{ item.url }}">więcej...</a>
+                    <div>
+                        <img src="{{ asset(item.vars.photo.path) }}" alt="{{ item.vars.title }}" class="img-training">
+                    </div>        
+                    <div class="p-3">  
+                        <h5>{{ item.vars.title }}</h5>
+                        <p>{{ item.vars.lead|nl2br }}</p>
+                        <a href="{{ item.url }}">Obejrzyj szkolenie  <i class="fa-solid fa-play arrow-watch"></i></a>
+                    </div>
                 </div>
             </div>
             
             {% endfor %}
             </div>
+            <div class="w-100-btn">
+                <a href="{{ newsUrl }}"><button class="btn-center" >ZOBACZ WSZYSTKIE SZKOLENIA</button></a>
+            </div>
         </div>
     </div>
+    <div class="deep-bar">
+        <div class="deep-img"></div>
+    </div>
+
+
+    <div class="reference">
+        <h3 class="black-title"><a href="{{ newsUrl }}">Najnowsze szkolenia <img src="{{ asset('build/images/logo-ducinaltum-fundacjakopia.svg') }}" alt="Logo" class="circle"></a></h3>
+        <div class="wrap">
+            <div class="list">
+            {% for item in items %}
+            <div class="item-wrap" >
+                <div class="item  animate-block" data-aos-delay="{{ loop.index0*300 }}" data-aos-duration="1000"  data-aos="flip-left">
+                    <div>
+                        <img src="{{ asset(item.vars.photo.path) }}" alt="{{ item.vars.title }}" class="img-training">
+                    </div>        
+                    <div class="p-3">  
+                        <h5>{{ item.vars.title }}</h5>
+                        <p>{{ item.vars.lead|nl2br }}</p>
+                        <a href="{{ item.url }}">Obejrzyj szkolenie <i class="fa-solid fa-play arrow-watch"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            {% endfor %}
+            </div>
+            <div class="w-100-btn">
+                <a href="{{ newsUrl }}"><button class="btn-center" >ZOBACZ WSZYSTKIE SZKOLENIA</button></a>
+            </div>
+        </div>
+    </div>
+    
 
 </div>
-{% endblock %}  
+{% endblock %}

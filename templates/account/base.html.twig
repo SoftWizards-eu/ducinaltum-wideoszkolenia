@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panel użytkownika{% endblock %}
+{% block meta_description %}Panel użytkownika systemu szkoleń{% endblock %}
+{% block meta_keywords %}panel, użytkownik, szkolenia, konto{% endblock %}
+
+{% block body_class %}account-panel{% endblock %}
+{% block header_class %}account-header{% endblock %}
+
+{% block content %}
+<div style="background-color: white; padding-top: 20px; padding-bottom: 40px;">
+    <div class="da-account-container">
+        <div class="da-flex-row" style="margin-top: 20px;">
+            <!-- Menu nawigacyjne - lewa kolumna -->
+            <div class="da-flex-col" style="width: 25%;">
+                <div class="da-account-navigation" style="margin-bottom: 30px;">
+                    <ul class="da-account-menu" style="display: block; border-bottom: none;">
+                        <li class="{% if app.request.get('_route') == 'app_account' %}da-active{% endif %}" style="margin-bottom: 10px;">
+                            <a href="{{ path('app_account') }}" style="padding: 10px; display: block; border-left: 3px solid {% if app.request.get('_route') == 'app_account' %}#0077b6{% else %}transparent{% endif %};">
+                                <i class="fa fa-user" style="margin-right: 8px;"></i> Dane konta
+                            </a>
+                        </li>
+                        <li class="{% if app.request.get('_route') == 'app_account_orders' %}da-active{% endif %}" style="margin-bottom: 10px;">
+                            <a href="{{ path('app_account_orders') }}" style="padding: 10px; display: block; border-left: 3px solid {% if app.request.get('_route') == 'app_account_orders' %}#0077b6{% else %}transparent{% endif %};">
+                                <i class="fa fa-shopping-cart" style="margin-right: 8px;"></i> Moje zamówienia
+                            </a>
+                        </li>
+                        <li class="{% if app.request.get('_route') == 'app_account_trainings' %}da-active{% endif %}" style="margin-bottom: 10px;">
+                            <a href="{{ path('app_account_trainings') }}" style="padding: 10px; display: block; border-left: 3px solid {% if app.request.get('_route') == 'app_account_trainings' %}#0077b6{% else %}transparent{% endif %};">
+                                <i class="fa fa-graduation-cap" style="margin-right: 8px;"></i> Moje szkolenia
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Zawartość - prawa kolumna -->
+            <div class="da-flex-col" style="width: 75%;">
+                <div class="da-account-content">
+                    {% block account_content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

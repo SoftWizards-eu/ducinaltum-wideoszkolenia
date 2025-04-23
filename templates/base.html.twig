@@ -22,8 +22,11 @@
                                 <a href="{{ url('homepage') }}" class="logo"></a>
                                 <menu type="toolbar" class="container d-flex flex-column flex-md-row justify-content-between">
                                     {{ knp_menu_render({menu: 'app.menu'}, {depth : 2, 'template' : 'menu.html.twig'}) }}
-                                  
-                                </menu>
+                                  <li class="auth-buttons">
+                                        <a href="#" class="btn-login">Zaloguj</a>
+                                        <a href="#1" class="btn-register">Zarejestruj</a>
+                                    </li>
+                                </menu> 
                                 <div class="search">
                                     <form method="get" action="{{ url('search') }}" ref="searchForm">
                                         <input type="text" ref="search" name="query" placeholder="Szukaj" value="{{ app.request.query.get('query') }}" />
@@ -59,6 +62,10 @@
                                 <nav>
                                     {{ knp_menu_render({menu: 'app.footer'}, {depth : 2}) }}
                                 </nav>
+                            </div>
+                            <div class="col3">
+                                {{include('part/newsletter.html.twig')}}
+
                             </div>
                      
                         </div>

@@ -1,0 +1,31 @@
+{% block header_user_menu %}
+<div class="da-user-dropdown">
+    <button class="da-dropdown-toggle" id="userDropdown" onclick="toggleUserDropdown()">
+        Piotr Czyż
+        <i class="fa fa-chevron-down" style="margin-left: 5px;"></i>
+    </button>
+    <div id="userDropdownMenu" class="da-dropdown-menu">
+        <a href="{{ path('app_account') }}" class="da-dropdown-item">Dane konta</a>
+        <a href="{{ path('app_account_orders') }}" class="da-dropdown-item">Moje zamówienia</a>
+        <a href="{{ path('app_account_trainings') }}" class="da-dropdown-item">Moje szkolenia</a>
+        <a href="{{ path('app_logout') }}" class="da-dropdown-item">Wyloguj</a>
+    </div>
+</div>
+
+<script>
+    function toggleUserDropdown() {
+        var dropdown = document.getElementById('userDropdownMenu');
+        dropdown.classList.toggle('da-show');
+    }
+    
+    // Zamknij dropdown po kliknięciu poza nim
+    document.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('userDropdownMenu');
+        var button = document.getElementById('userDropdown');
+        
+        if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.classList.remove('da-show');
+        }
+    });
+</script>
+{% endblock %}
