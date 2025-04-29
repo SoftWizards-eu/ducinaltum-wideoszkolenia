@@ -25,7 +25,7 @@ body, body.scrolled {
         top: 0px;
         left: 0px;
         width: 100%;
-        background: #cddaf8 url(../images/baner-onas.png) no-repeat  center center;
+        background: #cddaf8 url(../images/head.png) no-repeat  center center;
         height: 180px;
         .logo {
             width: 400px;
@@ -1932,3 +1932,207 @@ cookie-law {
 .training-button i {
     margin-left: 5px;
 }
+/* Dodaj te style do pliku CSS */
+
+/* Kontener wyszukiwarki */
+.ducinaltum-wyszukiwarka {
+    background-color: #f7f7f9;
+    padding: 30px 20px;
+    margin-bottom: 30px;
+  }
+  
+  /* Kontener formularza wyszukiwania */
+  .ducinaltum-search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* Formularz wyszukiwania */
+  .ducinaltum-search-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Pole tekstowe */
+  .ducinaltum-search-input {
+    flex: 2;
+    min-width: 250px;
+  }
+  
+  .ducinaltum-search-input input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    font-size: 14px;
+    background-color: white;
+  }
+  
+  /* Rozwijana lista kategorii */
+  .ducinaltum-search-dropdown {
+    flex: 2;
+    min-width: 250px;
+  }
+  
+  .ducinaltum-search-dropdown select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    font-size: 14px;
+    background-color: white;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+  
+  /* Przycisk szukaj */
+  .ducinaltum-search-button {
+    flex: 0 0 auto;
+  }
+  
+  .ducinaltum-search-button button {
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 14px;
+    cursor: pointer;
+    height: 40px;
+  }
+  
+  /* Rozwijana lista sortowania */
+  .ducinaltum-sort-dropdown {
+    flex: 2;
+    min-width: 200px;
+    margin-left: auto;
+  }
+  
+  .ducinaltum-sort-dropdown select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    font-size: 14px;
+    background-color: white;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+  
+  /* Kontener szkoleń */
+  .ducinaltum-training-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* Wiersz szkoleń - zawsze 3 w rzędzie */
+  .ducinaltum-training-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px 20px;
+  }
+  
+  /* Element szkolenia */
+  .ducinaltum-training-item {
+    width: 33.333%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Styl dla elementu item - zachowujemy istniejący styl */
+  .ducinaltum-training-item .item {
+    background-color: #f5f6f7;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Kontener obrazka */
+  .ducinaltum-image-container {
+    position: relative;
+    padding-top: 66.67%;  /* Proporcje 3:2 */
+    overflow: hidden;
+    height: 0;
+  }
+  
+  .ducinaltum-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Brak wyników */
+  .ducinaltum-no-results {
+    width: 100%;
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 30px;
+  }
+  
+  .ducinaltum-no-results p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .ducinaltum-no-results p:first-child {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Responsywność */
+  @media (max-width: 992px) {
+    .ducinaltum-search-form {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .ducinaltum-search-input,
+    .ducinaltum-search-dropdown,
+    .ducinaltum-sort-dropdown,
+    .ducinaltum-search-button {
+      width: 100%;
+      min-width: 0;
+    }
+    
+    .ducinaltum-search-button {
+      margin-top: 10px;
+    }
+    
+    .ducinaltum-search-button button {
+      width: 100%;
+    }
+    
+    .ducinaltum-sort-dropdown {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+    
+    .ducinaltum-training-item {
+      width: 50%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .ducinaltum-training-item {
+      width: 100%;
+    }
+  }

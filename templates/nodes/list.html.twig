@@ -1,13 +1,87 @@
-{% if module.vars.type in ['news', 'blog', 'press', 'gallery'] %}
+{% if module.vars.type in ['news'] and (app.request.attributes.get('_route_params').id is defined and app.request.attributes.get('_route_params').id == '1' or app.request.pathInfo starts with '/node-1') %}
+<!-- Pasek wyszukiwania identyczny jak na zrzucie ekranu -->
+<div style="background-color: #f7f7f9; padding: 20px; margin-bottom: 20px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+        <form action="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" method="GET" style="display: flex; width: 100%; flex-wrap: wrap; gap: 10px; align-items: center;">
+            <input type="text" name="query" placeholder="Wyszukaj szkolenie..." value="{{ app.request.query.get('query') }}" style="flex: 2; min-width: 200px; padding: 10px 15px; border: 1px solid #ddd; font-size: 14px;">
+            <select name="category" style="flex: 2; min-width: 200px; padding: 10px 15px; border: 1px solid #ddd; font-size: 14px;">
+                <option value="">Wybierz kategorię szkolenia</option>
+                <option value="1" {% if app.request.query.get('category') == '1' %}selected{% endif %}>Przebaczenie</option>
+                <option value="2" {% if app.request.query.get('category') == '2' %}selected{% endif %}>Asertywność</option>
+                <option value="3" {% if app.request.query.get('category') == '3' %}selected{% endif %}>Rozwój osobisty</option>
+            </select>
+            <button type="submit" style="background-color: #0077b6; color: white; border: none; padding: 10px 20px; font-size: 14px; min-width: 80px; cursor: pointer;">SZUKAJ</button>
+            <select name="sort" style="flex: 2; min-width: 200px; padding: 10px 15px; border: 1px solid #ddd; font-size: 14px; margin-left: auto;">
+                <option value="">Sortuj szkolenia wg...</option>
+                <option value="date" {% if app.request.query.get('sort') == 'date' %}selected{% endif %}>Data publikacji</option>
+                <option value="title" {% if app.request.query.get('sort') == 'title' %}selected{% endif %}>Tytuł</option>
+            </select>
+        </form>
+    </div>
+</div>
+
+<!-- Elegancki układ kart szkoleń -->
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+    <div style="display: flex; flex-wrap: wrap; margin: 0 -10px;">
+        {% set news = load_nodes(module.vars.type, {
+            orderBy : { publishDate:'desc' },
+            max: module.vars.limit|default(9),
+            pagging: true,
+            where : {
+                public : true
+            },
+            search: app.request.query.get('query'),
+            page : app.request.query.get('page', 1)
+        }) %}
+        
+        {% if news.list|length > 0 %}
+            {% for row in news.list|batch(3) %}
+                {% for card in row %}
+                <div style="width: 33.333%; padding: 0 10px; margin-bottom: 20px; box-sizing: border-box;">
+                    <div style="background-color: #f5f6f7; border-radius: 10px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+                        <div style="position: relative; padding-top: 60%; overflow: hidden;">
+                            <img src="{{ asset(card.vars.photo.path) }}" alt="{{ card.vars.title }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column;">
+                            <h5 style="color: #3e7590; padding-bottom: 15px; font-size: 20px; font-weight: 500; margin-top: 0;">{{ card.vars.title }}</h5>
+                            <p style="font-size: 16px; padding-bottom: 20px; font-weight: 300; line-height: 1.5em; color: #3f3f3f; flex-grow: 1;">{{ card.vars.lead|nl2br }}</p>
+                            <a href="{{ card.url }}" style="color: white; background-color: #6da435; padding: 10px 15px; display: inline-block; font-weight: 300; font-size: 18px; border-radius: 8px; text-decoration: none; align-self: flex-start;">Obejrzyj szkolenie <i class="fa-solid fa-play" style="font-size: 14px; margin-left: 5px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endfor %}
+        {% else %}
+            <div style="width: 100%; text-align: center; padding: 30px; background-color: #f9f9f9; border: 1px solid #ddd; margin-bottom: 30px;">
+                <p style="font-size: 18px; font-weight: 500; color: #333; margin-bottom: 10px;">Nie znaleziono szkoleń spełniających kryteria wyszukiwania.</p>
+                <p style="font-size: 16px; color: #555;">Spróbuj zmienić frazę wyszukiwania lub przeglądaj wszystkie dostępne szkolenia.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% if news.pages|length > 1 %}
+    <div style="max-width: 1200px; margin: 20px auto;">
+        {% include 'nodes/pagging.html.twig' with news %}
+    </div>
+{% endif %}
+
+{% if news.list|length >= module.vars.limit|default(9) %}
+<div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
+    <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" style="background-color: white; color: #5a86a4; border: 4px solid #5a86a4; padding: 15px 30px; font-size: 18px; font-weight: 700; text-decoration: none; border-radius: 10px; display: inline-block;">ZOBACZ WSZYSTKIE SZKOLENIA</a>
+</div>
+{% endif %}
+
+{% elseif module.vars.type in ['news', 'blog', 'press', 'gallery'] %}
 <section class="text text-content">
 <div class="news-list">
 {% set news = load_nodes(module.vars.type, {
     orderBy : {publishDate:'desc'},
-    max: 6,
+    max: module.vars.limit|default(6),
     pagging: true,
     where : {
         public : true
-    }, 
+    },
     page : app.request.query.get('page', 1)
 }) %}
 <div class="list">
@@ -26,7 +100,7 @@
                 </span>
                 <span class="nb last"></span>
             </div>
-              
+             
     {% endfor %}
 </div>
 {% include 'nodes/pagging.html.twig' with news %}
@@ -37,11 +111,11 @@
 <div class="news-list">
 {% set news = load_nodes(module.vars.type, {
     orderBy : {publishDate:'desc'},
-    max: 6,
+    max: module.vars.limit|default(6),
     pagging: true,
     where : {
         public : true
-    }, 
+    },
     page : app.request.query.get('page', 1)
 }) %}
  <div class="reference reference-simple">
@@ -56,7 +130,7 @@
                     <a href="{{ item.url }}">więcej...</a>
                 </div>
             </div>
-            
+           
             {% endfor %}
             </div>
         </div>
