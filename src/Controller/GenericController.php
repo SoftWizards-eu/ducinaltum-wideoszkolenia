@@ -10,14 +10,14 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Controller obsługujący panel konta użytkownika
  */
-class AccountController extends AbstractController
+class GenericController extends AbstractController
 {
     /**
      * @Route("/konto", name="app_account")
      */
     public function index(Request $request): Response
     {
-        // Tutaj w przyszłości będzie pobieranie danych użytkownika
+        
         
         return $this->render('account/dashboard.html.twig', [
             // Tutaj przekazywanie danych do widoku
@@ -44,6 +44,17 @@ class AccountController extends AbstractController
         // Tutaj w przyszłości będzie pobieranie szkoleń użytkownika
         
         return $this->render('account/trainings.html.twig', [
+            // Tutaj przekazywanie danych do widoku
+        ]);
+    }
+
+    /**
+     * @Route("/zakup", name="purchase")
+     */
+    public function purchase(Request $request): Response
+    {
+        // Tutaj w przyszłości będzie obsługa zakupu
+        return $this->render('nodes/training_purchase.html.twig', [
             // Tutaj przekazywanie danych do widoku
         ]);
     }

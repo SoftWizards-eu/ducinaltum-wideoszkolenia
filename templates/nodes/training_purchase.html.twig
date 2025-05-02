@@ -1,0 +1,495 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ sett('home_meta_title') }}{% endblock %}
+{% block meta_description %}{{ sett('home_meta_description') }}{% endblock %}
+{% block meta_keywords %}{{ sett('home_meta_keywords')}}{% endblock %}
+
+{% block body_class %}training-purchase{% endblock %}
+{% block content %}
+
+
+<div class="page-content">
+    <div class="purchase-container">
+        <div class="purchase-row">
+            <!-- Lewa kolumna -->
+            <div class="purchase-col training-col">
+                <div class="training-image">
+                    <img src="{{ asset('build/images/back-onas.jpg') }}" alt="Szkolenie wideo">
+                    
+                </div>
+                
+                <h2 class="training-title">"PRZEMOC W KOŚCIELE - CZY MUSIMY BYĆ BEZBRONNI?"</h2>
+                
+                <div class="price-info">
+                    <div class="price-row">
+                        <div class="price-label">Jednorazowa płatność</div>
+                        <div class="price-value">zł1187,00</div>
+                    </div>
+                    <div class="price-row total">
+                        <div class="price-label">Suma</div>
+                        <div class="price-value">PLN zł1187,00</div>
+                    </div>
+                </div>
+                
+                <div class="discount-section">
+                    <a href="#">Posiadasz kod rabatowy?</a>
+                </div>
+                
+                <div class="help-section">
+                    <p>Potrzebujesz pomocy w złożeniu zamówienia? <a href="#">Skontaktuj się z nami!</a></p>
+                </div>
+            </div>
+            
+            <!-- Prawa kolumna -->
+            <div class="purchase-col checkout-col">
+                <div class="login-section">
+                    <h3>Zaloguj się by kupić</h3>
+                    <div class="login-row">
+                        <input type="email" placeholder="E-mail">
+                        <input type="password" placeholder="Hasło">
+                        <button>LOG IN</button>
+                    </div>
+                    
+                    <div class="separator">
+                        <span>lub</span>
+                    </div>
+                </div>
+                
+                <div class="account-section">
+                    <h3>Informacje o koncie</h3>
+                    <div class="form-group">
+                        <label>E-mail *</label>
+                        <input type="email" placeholder="E-mail">
+                    </div>
+                </div>
+                
+                <div class="billing-section">
+                    <h3>Informacje rozliczeniowe</h3>
+                    <div class="form-group">
+                        <label>Imię *</label>
+                        <input type="text" placeholder="Imię">
+                    </div>
+                    <div class="form-group">
+                        <label>Nazwisko *</label>
+                        <input type="text" placeholder="Nazwisko">
+                    </div>
+                    <div class="form-group">
+                        <label>Kraj *</label>
+                        <select>
+                            <option>Poland</option>
+                        </select>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="gift">
+                        <label for="gift">To jest prezent</label>
+                    </div>
+                </div>
+                
+                <div class="payment-section">
+                    <div class="payment-header">
+                        <h3 style="margin-bottom: 0px">Metoda płatności</h3>
+                        <span class="secure-badge">Bezpieczna</span>
+                    </div>
+                    
+                    <div class="card-form">
+                        <div class="form-group">
+                            <label>Numer karty</label>
+                            <div class="card-number-input">
+                                <input type="text" placeholder="1234 1234 1234 1234">
+                                <div class="card-icons">
+                                    <img src="{{ asset('build/images/visa.png') }}" alt="Visa">
+                                    <img src="{{ asset('build/images/mastercard.png') }}" alt="Mastercard">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-details">
+                            <div class="form-group">
+                                <label>Data ważności</label>
+                                <input type="text" placeholder="MM / RR">
+                            </div>
+                            <div class="form-group">
+                                <label>Kod bezpieczeństwa</label>
+                                <input type="text" placeholder="Kod CVC">
+                                <span class="cvc-info">?</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="paypal-option">
+                        <img src="{{ asset('build/images/paypal.png') }}" alt="PayPal">
+                    </div>
+                    
+                    <div class="checkbox-group terms">
+                        <input type="checkbox" id="terms">
+                        <label for="terms">Akceptuję <a href="#">Regulamin</a> i <a href="#">Politykę prywatności</a></label>
+                    </div>
+                    
+                    <button class="purchase-button">Sfinalizuj zakup</button>
+                    
+                    <div class="secure-info">
+                        <i class="fa-solid fa-lock"></i> Wszystkie transakcje są bezpieczne i szyfrowane
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    /* Globalny układ strony */
+    body {
+        background-color: #ffffff;
+    }
+    
+    .page-content {
+        padding-top: 30px;
+        background-color: #ffffff;
+    }
+    
+    .purchase-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        margin-top: 30px;
+    }
+    
+    .purchase-row {
+        display: flex;
+        margin: 0 -15px;
+            gap: 150px;
+    }
+    
+    .purchase-col {
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    
+    .training-col {
+        width: 45%;
+    }
+    
+    .checkout-col {
+        width: 55%;
+    }
+    
+    /* Lewa kolumna - informacje o szkoleniu */
+    .training-image {
+        position: relative;
+        margin-bottom: 20px;
+        border-radius: 0;
+        overflow: hidden;
+    }
+    
+    .training-image img {
+        width: 100%;
+        display: block;
+    }
+    .card-form{
+            border: 1px black solid;
+            padding: 20px 20px 0px 20px;
+            margin-bottom: 20px;
+    }
+    
+    .play-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        background-color: #4caf50;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+    }
+    
+    .training-title {
+        color: #0066cc;
+        font-size: 16px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    
+    .price-info {
+        margin-bottom: 20px;
+    }
+    
+    .price-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+    }
+    
+    .price-row.total {
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+        font-weight: bold;
+    }
+    
+    .discount-section {
+        text-align: center;
+        margin: 15px 0;
+    }
+    
+    .discount-section a {
+        color: #333;
+        text-decoration: underline;
+        font-size: 14px;
+    }
+    
+    .help-section {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+    }
+    
+    .help-section a {
+        color: #0066cc;
+        text-decoration: underline;
+    }
+    
+    /* Prawa kolumna - checkout */
+    .login-section,
+    .account-section,
+    .billing-section,
+    .payment-section {
+        margin-bottom: 20px;
+    }
+    
+    h3 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #333;
+    }
+    
+    .login-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .login-row input {
+        flex: 1;
+        padding: 8px 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    
+    .login-row button {
+        background-color: #0077b6;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    
+    .separator {
+        position: relative;
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .separator:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #ddd;
+    }
+    
+    .separator span {
+        background-color: white;
+        padding: 0 10px;
+        position: relative;
+        color: #666;
+        font-size: 14px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #666;
+        font-size: 14px;
+    }
+    
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .checkbox-group input {
+        margin-right: 10px;
+    }
+    
+    .checkbox-group label {
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .payment-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        justify-content: space-between;
+    }
+    
+    .secure-badge {
+        margin-left: 10px;
+        background-color: #f1f1f1;
+        color: #666;
+        font-size: 12px;
+        padding: 2px 8px;
+        border-radius: 3px;
+    }
+    
+    .card-number-input {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px 10px;
+    }
+    
+    .card-number-input input {
+        flex: 1;
+        border: none;
+        padding: 3px 0;
+        font-size: 14px;
+        outline: none;
+    }
+    
+    .card-icons {
+        display: flex;
+    }
+    
+    .card-icons img {
+        height: 20px;
+        margin-left: 5px;
+    }
+    
+    .card-details {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .card-details .form-group {
+        flex: 1;
+        position: relative;
+    }
+    
+    .cvc-info {
+        position: absolute;
+        right: 10px;
+        top: 33px;
+        width: 16px;
+        height: 16px;
+        background: #ddd;
+        color: #666;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+    
+    .paypal-option {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .paypal-option img {
+        height: 25px;
+    }
+    
+    .terms {
+        margin-bottom: 20px;
+    }
+    
+    .terms a {
+        color: #0066cc;
+    }
+    
+    .purchase-button {
+        background-color: #f08a24;
+        color: white;
+        border: none;
+        width: 100%;
+        padding: 12px 0;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+    
+    .secure-info {
+        text-align: center;
+        color: #777;
+        font-size: 12px;
+    }
+    
+    /* Responsywność */
+    @media (max-width: 991px) {
+        .purchase-row {
+            flex-direction: column;
+                gap: 0px;
+        }
+        
+        .training-col,
+        .checkout-col {
+            width: 100%;
+        }
+        
+        .training-col {
+            margin-bottom: 30px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .login-row {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        
+        .login-row input {
+            margin-bottom: 10px;
+        }
+        
+        .card-details {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+</style>
+{% endblock %}
