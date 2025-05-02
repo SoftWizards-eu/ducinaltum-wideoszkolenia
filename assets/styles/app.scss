@@ -2283,3 +2283,349 @@ cookie-law {
         width: 100%; 
     }
 }
+.page-content {
+    padding-top: 30px;
+    background-color: #ffffff;
+}
+
+.purchase-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 30px;
+}
+
+.purchase-row {
+    display: flex;
+    margin: 0 -15px;
+        gap: 150px;
+}
+
+.purchase-col {
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.training-col {
+    width: 45%;
+}
+
+.checkout-col {
+    width: 55%;
+}
+
+
+.training-image {
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.training-image img {
+    width: 100%;
+    display: block;
+}
+.card-form{
+        border: 1px black solid;
+        padding: 20px 20px 0px 20px;
+        margin-bottom: 20px;
+}
+
+.play-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #4caf50;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+}
+
+.training-title {
+    color: #0066cc;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.price-info {
+    margin-bottom: 20px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.price-row.total {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.discount-section {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.discount-section a {
+    color: #333;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.help-section {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.help-section a {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+
+.login-section,
+.account-section,
+.billing-section,
+.payment-section {
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.login-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.login-row input {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.login-row button {
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.separator {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.separator:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.separator span {
+    background-color: white;
+    padding: 0 10px;
+    position: relative;
+    color: #666;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #666;
+}
+
+.payment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.secure-badge {
+    margin-left: 10px;
+    background-color: #f1f1f1;
+    color: #666;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.card-number-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.card-number-input input {
+    flex: 1;
+    border: none;
+    padding: 3px 0;
+    font-size: 14px;
+    outline: none;
+}
+
+.card-icons {
+    display: flex;
+}
+
+.card-icons img {
+    height: 20px;
+    margin-left: 5px;
+}
+
+.card-details {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.card-details .form-group {
+    flex: 1;
+    position: relative;
+}
+
+.cvc-info {
+    position: absolute;
+    right: 10px;
+    top: 33px;
+    width: 16px;
+    height: 16px;
+    background: #ddd;
+    color: #666;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.paypal-option {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.paypal-option img {
+    height: 25px;
+}
+
+.terms {
+    margin-bottom: 20px;
+}
+
+.terms a {
+    color: #0066cc;
+}
+
+.purchase-button {
+    background-color: #f08a24;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.secure-info {
+    text-align: center;
+    color: #777;
+    font-size: 12px;
+}
+
+/* Responsywność */
+@media (max-width: 991px) {
+    .purchase-row {
+        flex-direction: column;
+            gap: 0px;
+    }
+    
+    .training-col,
+    .checkout-col {
+        width: 100%;
+    }
+    
+    .training-col {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .login-row input {
+        margin-bottom: 10px;
+    }
+    
+    .card-details {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
