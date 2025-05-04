@@ -18,15 +18,29 @@ a {
 #outer {
     overflow: hidden;
 }
+body.home header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent; 
+    height: 180px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    z-index: 1000;
+}
+
+body.home.scrolled header {
+    background: #cddaf8 url(../images/head.png) no-repeat center center; 
+}
 body, body.scrolled {
-    header {
-        
+    header{
         position: fixed;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        background: #cddaf8 url(../images/head.png) no-repeat  center center;
-        height: 180px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #cddaf8 url(../images/head.png) no-repeat center center;
+    height: 180px;
+    }
         .logo {
             width: 400px;
             height: 130px;
@@ -66,7 +80,6 @@ body, body.scrolled {
         }
         .wrap {
             display: flex;
-            padding-left: 162px;
             .left {
                 flex: 1;
                 padding-top: 74px;
@@ -169,7 +182,6 @@ body, body.scrolled {
             }
         }
     }
-}
 .breadcrumbs {
     display: none;
 }
@@ -474,6 +486,7 @@ body, body.scrolled {
     
     background-color: white;
     position: relative;
+    padding-bottom: 80px;
     &.reference-simple {
         background: white;
         .wrap {
@@ -484,7 +497,7 @@ body, body.scrolled {
         }
     }
     .wrap {
-        padding-top: 180px;
+        padding-top: 100px;
         padding-bottom: 50px;
         .list {
         display: flex;
@@ -560,9 +573,6 @@ footer {
             background-size:contain;
             margin-bottom: 10px;
         }
-        .footer-about-text {
-            height: 138px;
-        }
         .social {
             display:  block;
             i {
@@ -583,15 +593,50 @@ footer {
             }
         }
         .col1 {
-            width: 400px;
+            display: flex;
+            flex-direction: column; /* Ustawienie elementów w kolumnie */
+            align-items: flex-start; /* Wyrównanie elementów do lewej */
             padding-right: 30px;
             border-right: 1px solid rgb(170, 174, 185);
             color: white;
             padding-left: 20px;
-            height: 240px;
-            .znak {
-                padding-left: 0px;
-            }
+            height: auto;
+        }
+        footer .up .col1 {
+            display: flex;
+            flex-direction: column; /* Ustawienie elementów w pionie */
+            justify-content: flex-start; /* Elementy zaczynają się od góry */
+            align-items: flex-start; /* Wyrównanie elementów do lewej strony */
+            gap: 15px; /* Odstęp między elementami */
+            padding-right: 30px;
+            padding-left: 20px;
+            border-right: 1px solid rgb(170, 174, 185);
+            color: white;
+            width: 300px; /* Ustalona szerokość */
+            box-sizing: border-box;
+        }
+        
+        .col1 .logo {
+            display: block;
+            position: relative !important;
+            height: 81px;
+            background: url(../images/logo-ducinaltum-fundacjakopia.svg) no-repeat;
+            background-size: contain;
+            background-position: left top;
+            margin-bottom: 0; 
+        }
+        
+        .col1 .footer-about-text {
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 30px 0px 20px 0px;
+            overflow-wrap: break-word;
+        }
+        
+        .col1 .znak {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: auto; /* Przesuwa ten element na koniec kontenera flex */
         }
         .col2 {
             flex: 1;
@@ -1276,7 +1321,6 @@ cookie-law {
 }
 .w-100-btn{
     text-align: center;
-    margin-top: 50px;
 }
 .btn-center{
     text-align: center;
