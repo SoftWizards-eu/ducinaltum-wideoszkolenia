@@ -34,7 +34,8 @@ body.home.scrolled header {
 }
 body, body.scrolled {
     header{
-        position: fixed;
+    position: fixed;
+    z-index: 1000;
     top: 0;
     left: 0;
     width: 100%;
@@ -1709,7 +1710,7 @@ cookie-law {
 
 .da-table th, 
 .da-table td {
-    padding: 12px 15px;
+    padding: 8px 11px;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
 }
@@ -1945,6 +1946,7 @@ cookie-law {
 .training-content {
     padding: 15px;
     padding-left: 40px;
+    background-color: #f5f6f7;
 }
 
 .training-subtitle {
@@ -2264,8 +2266,7 @@ cookie-law {
 .ducinaltum-search-bar-container {
     background-color: #f7f7f9;
     padding: 20px;
-    margin-bottom: 20px;
-    margin-top: -100px;
+    margin: -200px auto 50px auto;
 }
 
 .ducinaltum-search-bar-inner {

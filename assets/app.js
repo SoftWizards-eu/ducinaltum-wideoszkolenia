@@ -146,18 +146,22 @@ new Vue({
             this.$bus.$emit('bodyclick');
         },
         onScroll(e) {
-
-            let contentStart = 110
-            let elem =  document.getElementById('content');
-  
-            if( elem){
-                 contentStart =  elem.getBoundingClientRect().top
-            } 
-             
-            if (contentStart < 180 /*|| window.pageYOffset > contentStart*/) {
-                document.body.classList.add('scrolled')
+            // Zmień tę wartość na mniejszą, aby klasa pojawiała się wcześniej
+            // Na przykład 300 zamiast 180
+            let threshold = 50; // Ustaw niższą wartość, aby klasa scrolled pojawiała się wcześniej
+            
+            let contentStart = 110;
+            let elem = document.getElementById('content');
+        
+            if (elem) {
+                contentStart = elem.getBoundingClientRect().top;
+            }
+            
+            // Sprawdź, czy użytkownik przewinął stronę o przynajmniej 50px
+            if (contentStart < threshold || window.pageYOffset > 50) {
+                document.body.classList.add('scrolled');
             } else {
-                document.body.classList.remove('scrolled')
+                document.body.classList.remove('scrolled');
             }
         },
         menuToggle() {

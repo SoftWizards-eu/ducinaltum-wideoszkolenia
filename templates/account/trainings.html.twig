@@ -3,11 +3,11 @@
 {% block account_content %}
     <h2 class="da-account-title">Moje szkolenia</h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+   <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
         {% for i in 1..4 %}
         <div class="training-card">
             <div class="training-image">
-                <img src="{{ asset('build/images/placeholder-video.jpg') }}" alt="Szkolenie">
+                <img src="{{ asset('build/images/back-onas.jpg') }}" alt="Szkolenie">
                 <div class="training-check">
                     <i class="fa fa-check"></i>
                 </div>
