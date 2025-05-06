@@ -146,9 +146,8 @@ new Vue({
             this.$bus.$emit('bodyclick');
         },
         onScroll(e) {
-            // Zmień tę wartość na mniejszą, aby klasa pojawiała się wcześniej
-            // Na przykład 300 zamiast 180
-            let threshold = 50; // Ustaw niższą wartość, aby klasa scrolled pojawiała się wcześniej
+           
+            let threshold = 50; 
             
             let contentStart = 110;
             let elem = document.getElementById('content');
@@ -157,7 +156,6 @@ new Vue({
                 contentStart = elem.getBoundingClientRect().top;
             }
             
-            // Sprawdź, czy użytkownik przewinął stronę o przynajmniej 50px
             if (contentStart < threshold || window.pageYOffset > 50) {
                 document.body.classList.add('scrolled');
             } else {
